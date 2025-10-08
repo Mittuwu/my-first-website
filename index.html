@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructora Gonzales - Construyendo Excelencia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 5px 30px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: slideInDown 0.5s ease-out;
+        }
+        
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+        
+        .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+        .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+        .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+        .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+        .nav-links li:nth-child(6) { animation-delay: 0.6s; }
+        .nav-links li:nth-child(7) { animation-delay: 0.7s; }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 82, 0.85), rgba(44, 95, 127, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e0e0e0" width="1200" height="600"/><text x="50%" y="50%" fill="%23999" font-size="24" text-anchor="middle" dominant-baseline="middle">Fondo de Obra en Construcción</text></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: white; /* Changed to white for better visibility on the gradient background */
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Added shadow to make it pop */
+            animation: fadeInUp 1.2s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a3a52;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            animation: fadeInUp 1.4s ease-out, pulse 2s infinite;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            animation: none;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+        
+        section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: #1a3a52;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            animation: glow 2s infinite;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: #2c5f7f;
+            margin-bottom: 1rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mission-card, .vision-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .mission-card:hover::before, .vision-card:hover::before {
+            left: 100%;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Materials Catalog */
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .material-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+            z-index: 0; /* Ensure button and content are above the before element */
+        }
+        
+        .material-card:nth-child(1) { animation-delay: 0.1s; }
+        .material-card:nth-child(2) { animation-delay: 0.2s; }
+        .material-card:nth-child(3) { animation-delay: 0.3s; }
+        .material-card:nth-child(4) { animation-delay: 0.4s; }
+        .material-card:nth-child(5) { animation-delay: 0.5s; }
+        .material-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .material-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #2c5f7f);
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+        
+        .material-card:hover::before {
+            opacity: 1;
+        }
+        
+        .material-card:hover {
+            transform: translateY(-5px) rotate(0deg); /* Removed rotation as it was distracting with pulse/float */
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .material-card h4 {
+            color: #1a3a52;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .material-price {
+            font-size: 1.5rem;
+            color: #2c5f7f;
+            font-weight: bold;
+            margin: 1rem 0;
+            /* animation: pulse 3s infinite; Removed pulse from here to keep it subtle */
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            background: #2c5f7f;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .add-to-cart::after {
+            content: '✓ ¡Agregado!'; /* Updated content for better UX */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffd700;
+            color: #1a3a52;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .add-to-cart.added {
+            background: #1a3a52;
+        }
+
+        .add-to-cart.added::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .add-to-cart:hover {
+            background: #1a3a52;
+            transform: scale(1.02); /* Changed scale from 1.05 to 1.02 for subtler effect */
+        }
+        
+        /* House Plans */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .plan-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: slideInUp 0.8s ease-out backwards;
+        }
+        
+        .plan-card:nth-child(1) { animation-delay: 0.1s; }
+        .plan-card:nth-child(2) { animation-delay: 0.2s; }
+        .plan-card:nth-child(3) { animation-delay: 0.3s; }
+        .plan-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            animation: glow 2s infinite;
+        }
+        
+        .plan-header {
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f7f 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        .plan-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .plan-header p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .plan-details {
+            padding: 2rem;
+        }
+        
+        .plan-specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .spec-item {
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .spec-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .spec-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .spec-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1a3a52;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            transition: padding-left 0.3s;
+        }
+        
+        .features-list li:hover {
+            padding-left: 2rem;
+        }
+        
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 3rem auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.8s ease-out backwards;
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a3a52;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #2c5f7f;
+            box-shadow: 0 0 0 3px rgba(44, 95, 127, 0.1);
+            transform: scale(1.02);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Locations */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: slideInRight 0.8s ease-out backwards;
+        }
+        
+        .location-card:nth-child(1) { animation-delay: 0.1s; }
+        .location-card:nth-child(2) { animation-delay: 0.2s; }
+        .location-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .location-card:hover {
+            transform: translateY(-5px) rotate(0deg); /* Removed rotation for a simpler hover */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .location-card h4 {
+            color: #1a3a52;
+            margin-bottom: 1rem;
+        }
+        
+        .location-card ul {
+            list-style: none;
+        }
+        
+        .location-card li {
+            padding: 0.3rem 0;
+            color: #666;
+            transition: padding-left 0.3s;
+        }
+        
+        .location-card li:hover {
+            padding-left: 10px;
+            color: #2c5f7f;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a3a52;
+            color: white;
+            padding: 3rem 20px 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            padding: 0.3rem 0;
+        }
+        
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: #ffd700;
+            padding-left: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cart-count {
+            background: #ffd700;
+            color: #1a3a52;
+            padding: 2px 8px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Checkout Page Styles */
+        .checkout-container {
+            display: none;
+            padding: 80px 20px;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+        
+        .checkout-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .checkout-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            animation: slideInLeft 0.5s ease-out backwards;
+        }
+        
+        .cart-item:hover {
+            background: #f0f0f0; /* Slight change on hover */
+        }
+        
+        .remove-item {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .remove-item:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .item-details {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-details span {
+            margin: 0 10px;
+        }
+        
+        .cart-total {
+            text-align: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a3a52;
+            margin: 2rem 0;
+            animation: pulse 2s infinite;
+        }
+        
+        .checkout-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #2c5f7f;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: #1a3a52;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 58, 82, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Constructora Gonzales</div>
+            <ul class="nav-links">
+                <li><a onclick="showSection('main')">Inicio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#materials">Materiales</a></li>
+                <li><a href="#plans">Planos</a></li>
+                <li><a href="#locations">Ubicaciones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+                <li><a onclick="showCheckout()">🛒 <span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="mainContent">
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Construyendo Sueños con Precisión, Integridad y Excelencia</h1>
+                <p>El socio de construcción de confianza de Costa Rica por más de dos décadas, entregando hogares de calidad y proyectos comerciales que perduran en el tiempo.</p>
+                <a href="#contact" class="cta-button">Solicite Su Presupuesto Personalizado</a>
+            </div>
+        </section>
+        
+        <section id="about" class="animate-on-scroll">
+            <div class="container">
+                <h2>Acerca de Constructora Gonzales</h2>
+                <div class="about-content">
+                    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+                        En Constructora Gonzales, transformamos su visión en realidad a través de una mano de obra meticulosa, comunicación transparente y un compromiso inquebrantable con la calidad. Desde casas residenciales de ensueño hasta desarrollos comerciales, nuestro equipo experimentado maneja cada detalle con la profesionalidad y experiencia que usted merece.
+                    </p>
+                    <div class="vision-mission">
+                        <div class="vision-card animate-on-scroll">
+                            <h3>Nuestra Visión</h3>
+                            <p>Ser reconocida como la empresa constructora más confiable e innovadora de Costa Rica, estableciendo el estándar de calidad, sostenibilidad y satisfacción del cliente en cada proyecto que emprendemos.</p>
+                        </div>
+                        <div class="mission-card animate-on-scroll">
+                            <h3>Nuestra Misión</h3>
+                            <p>Nuestra misión es ofrecer servicios de construcción excepcionales que superen las expectativas del cliente a través de una mano de obra superior, precios transparentes y atención personalizada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="materials" class="animate-on-scroll">
+            <div class="container">
+                <h2>Catálogo de Materiales</h2>
+                
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                    Seleccione materiales de alta calidad para su proyecto. ¡Los mejores precios en el país!
+                </p>
+                <div class="materials-grid">
+                    
+                    <div class="material-card" data-name="Saco de Cemento (50kg)" data-price="7500">
+                        <h4>Saco de Cemento (50kg) 🧱</h4>
+                        <p>Cemento Portland de alta resistencia, ideal para cimientos y estructuras.</p>
+                        <div class="material-price">₡7.500</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+                    
+                    <div class="material-card" data-name="Varilla de Acero (1/2')" data-price="5200">
+                        <h4>Varilla de Acero (1/2") 💪</h4>
+                        <p>Varilla corrugada de 6 metros, Grado 60. Esencial para refuerzo estructural.</p>
+                        <div class="material-price">₡5.200</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+                    
+                    <div class="material-card" data-name="Bloque de Concreto (15cm)" data-price="650">
+                        <h4>Bloque de Concreto (15cm) 🏛️</h4>
+                        <p>Bloque estándar de 15x20x40 cm, alta durabilidad y aislamiento.</p>
+                        <div class="material-price">₡650</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+                    
+                    <div class="material-card" data-name="Metro Cúbico de Arena" data-price="25000">
+                        <h4>Metro Cúbico de Arena 🏖️</h4>
+                        <p>Arena fina y cribada, perfecta para mezclas de mortero y acabados.</p>
+                        <div class="material-price">₡25.000</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+                    
+                    <div class="material-card" data-name="Tubería PVC (4')" data-price="12000">
+                        <h4>Tubería PVC Sanitaria (4") 💧</h4>
+                        <p>Tubería para sistemas sanitarios, alta resistencia a la corrosión.</p>
+                        <div class="material-price">₡12.000</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+
+                    <div class="material-card" data-name="M2 de Porcelanato (60x60)" data-price="18500">
+                        <h4>M2 de Porcelanato (60x60) ✨</h4>
+                        <p>Acabado de lujo, resistente a la humedad y de fácil mantenimiento.</p>
+                        <div class="material-price">₡18.500</div>
+                        <button class="add-to-cart" onclick="addToCart(this)">Añadir al Carrito</button>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="plans" class="animate-on-scroll">
+            <div class="container">
+                <h2>Planos de Vivienda Sugeridos</h2>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Modelo Sencillo 🏡</h3>
+                            <p>Ideal para familias pequeñas o inversión inicial.</p>
+                        </div>
+                        <div class="plan-details">
+                            <div class="plan-specs">
+                                <div class="spec-item"><span class="spec-label">Área</span><span class="spec-value">100 m²</span></div>
+                                <div class="spec-item"><span class="spec-label">Habitaciones</span><span class="spec-value">2</span></div>
+                                <div class="spec-item"><span class="spec-label">Baños</span><span class="spec-value">1</span></div>
+                                <div class="spec-item"><span class="spec-label">Garaje</span><span class="spec-value">Sí</span></div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Diseño de plano abierto.</li>
+                                <li>Acabados económicos de alta calidad.</li>
+                                <li>Construcción en 4 meses.</li>
+                            </ul>
+                            <a href="#contact" class="cta-button" style="width: 100%;">¡Me Interesa!</a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Modelo Familiar 🏘️</h3>
+                            <p>Espacios amplios y cómodos para el crecimiento familiar.</p>
+                        </div>
+                        <div class="plan-details">
+                            <div class="plan-specs">
+                                <div class="spec-item"><span class="spec-label">Área</span><span class="spec-value">180 m²</span></div>
+                                <div class="spec-item"><span class="spec-label">Habitaciones</span><span class="spec-value">3</span></div>
+                                <div class="spec-item"><span class="spec-label">Baños</span><span class="spec-value">2.5</span></div>
+                                <div class="spec-item"><span class="spec-label">Garaje</span><span class="spec-value">2 Vehículos</span></div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Dormitorio principal con baño privado.</li>
+                                <li>Área de lavandería separada.</li>
+                                <li>Balcón/Terraza.</li>
+                            </ul>
+                            <a href="#contact" class="cta-button" style="width: 100%;">¡Me Interesa!</a>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Modelo Lujo Plus 💎</h3>
+                            <p>El máximo confort con acabados premium y diseño exclusivo.</p>
+                        </div>
+                        <div class="plan-details">
+                            <div class="plan-specs">
+                                <div class="spec-item"><span class="spec-label">Área</span><span class="spec-value">300 m²</span></div>
+                                <div class="spec-item"><span class="spec-label">Habitaciones</span><span class="spec-value">4</span></div>
+                                <div class="spec-item"><span class="spec-label">Baños</span><span class="spec-value">4</span></div>
+                                <div class="spec-item"><span class="spec-label">Piscina</span><span class="spec-value">Opcional</span></div>
+                            </div>
+                            <ul class="features-list">
+                                <li>Sistema inteligente de hogar.</li>
+                                <li>Cocina gourmet con isla.</li>
+                                <li>Vistas panorámicas (diseño adaptable).</li>
+                            </ul>
+                            <a href="#contact" class="cta-button" style="width: 100%;">¡Me Interesa!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="locations" class="animate-on-scroll">
+            <div class="container">
+                <h2>Nuestras Ubicaciones de Servicio</h2>
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <h4>Valle Central</h4>
+                        <ul>
+                            <li>San José</li>
+                            <li>Heredia</li>
+                            <li>Alajuela</li>
+                            <li>Cartago</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <h4>Pacífico Norte</h4>
+                        <ul>
+                            <li>Guanacaste</li>
+                            <li>Nicoya</li>
+                            <li>Santa Cruz</li>
+                        </ul>
+                    </div>
+                    <div class="location-card">
+                        <h4>Pacífico Sur y Caribe</h4>
+                        <ul>
+                            <li>Puntarenas</li>
+                            <li>Limón</li>
+                            <li>Zona Sur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="animate-on-scroll">
+            <div class="container">
+                <h2>Contáctenos para su Proyecto</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectType">Tipo de Proyecto</label>
+                        <select id="projectType" name="projectType">
+                            <option value="residencia">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="remodelacion">Remodelación</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje / Requisitos del Proyecto</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Enviar Solicitud de Presupuesto</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="checkoutContainer" class="checkout-container">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>🛒 Su Carrito de Materiales</h2>
+            </div>
+            <div class="cart-items" id="cartItemsList">
+                <p class="empty-cart" id="emptyCartMessage">El carrito está vacío. ¡Explore nuestro catálogo de materiales!</p>
+            </div>
+            
+            <div class="cart-total">
+                Total Estimado: <span id="cartTotal">₡0</span>
+            </div>
+            
+            <div class="checkout-buttons">
+                <button class="btn-secondary" onclick="showSection('main')">← Volver a Materiales</button>
+                <button class="btn-primary" onclick="alert('Funcionalidad de pago no implementada. Contáctenos para finalizar su pedido.')">Finalizar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h4>Constructora Gonzales</h4>
+                <p>Construyendo el futuro de Costa Rica con integridad y calidad inigualable.</p>
+                <p>Copyright &copy; 2025</p>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#materials">Catálogo</a></li>
+                    <li><a href="#plans">Planos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>Teléfono: +506 8888-9999</li>
+                    <li>Email: info@constructorgonzales.cr</li>
+                    <li>Dirección: San José, Costa Rica</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síganos</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Diseño y Construcción Web por C.G. Developers</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array to store cart items (simulating a basic cart)
+        let cart = [];
+
+        // Function to update the cart count in the header
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.length;
+            document.getElementById('emptyCartMessage').style.display = cart.length === 0 ? 'block' : 'none';
+        }
+
+        // Function to add a material to the cart
+        function addToCart(button) {
+            const card = button.closest('.material-card');
+            const name = card.dataset.name;
+            const price = parseFloat(card.dataset.price);
+
+            // Simple check if item is already in cart. For this basic example, we allow duplicates.
+            cart.push({ name, price });
+            updateCartCount();
+
+            // Visual feedback: Change button text temporarily
+            button.classList.add('added');
+            setTimeout(() => {
+                button.classList.remove('added');
+            }, 1000);
+        }
+
+        // Function to render the cart contents
+        function renderCart() {
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                list.innerHTML = '<p class="empty-cart" id="emptyCartMessage">El carrito está vacío. ¡Explore nuestro catálogo de materiales!</p>';
+                document.getElementById('cartTotal').textContent = '₡0';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <div class="item-details">
+                        <span>${item.name}</span>
+                        <span>${formatCurrency(item.price)}</span>
+                    </div>
+                    <button class="remove-item" data-index="${index}" onclick="removeItem(${index})">Eliminar</button>
+                `;
+                list.appendChild(itemElement);
+            });
+
+            document.getElementById('cartTotal').textContent = formatCurrency(total);
+        }
+
+        // Function to remove an item from the cart
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        }
+
+        // Function to format currency (example for Costa Rican Colones)
+        function formatCurrency(amount) {
+            return `₡${amount.toLocaleString('es-CR')}`;
+        }
+
+        // Function to switch between main content and checkout page
+        function showCheckout() {
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('checkoutContainer').style.display = 'block';
+            renderCart(); // Render cart every time checkout is shown
+            window.scrollTo(0, 0); // Scroll to top
+        }
+
+        function showSection(sectionId) {
+            // Hide checkout and show main content
+            document.getElementById('checkoutContainer').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            
+            // Scroll to the targeted section if it's 'main', otherwise just show main.
+            if (sectionId === 'main') {
+                // Scroll to the home section, or the very top
+                document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // If the link uses a hash (#), let the browser handle the scroll
+            }
+        }
+        
+        // --- Scroll Animation Logic ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once visible to prevent re-triggering on scroll up/down
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        // Target all elements with the .animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Initialize cart count on load
+        updateCartCount();
+    </script>
+</body>
+</html>
